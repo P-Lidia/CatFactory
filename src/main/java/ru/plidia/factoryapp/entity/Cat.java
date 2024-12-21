@@ -18,7 +18,7 @@ public class Cat {
         this.id = (long) nextId.incrementAndGet();
         this.age = RandomGeneration.generate(age);
         this.weight = RandomGeneration.generate(weight);
-        this.colour = colour;
+        this.colour = RandomGeneration.generateColour(colour);
     }
 
     public Long getId() {
@@ -51,6 +51,9 @@ public class Cat {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        return sb.append(id).append(age).append(weight).append(colour).toString();
+        return sb.append("\n").append("id ").append(id).append(": age - ")
+                .append(age).append(", weight - ")
+                .append(weight).append(", colour - ")
+                .append(colour).toString();
     }
 }
