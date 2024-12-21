@@ -1,5 +1,7 @@
 package ru.plidia.factoryapp.entity;
 
+import ru.plidia.factoryapp.service.RandomGeneration;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Cat {
@@ -14,8 +16,8 @@ public class Cat {
 
     public Cat(int age, int weight, CatColour colour) {
         this.id = (long) nextId.incrementAndGet();
-        this.age = age;
-        this.weight = weight;
+        this.age = RandomGeneration.generate(age);
+        this.weight = RandomGeneration.generate(weight);
         this.colour = colour;
     }
 
