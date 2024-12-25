@@ -4,7 +4,7 @@ import ru.plidia.factoryapp.service.RandomGeneration;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Cat {
+public class Cat implements Comparable<Cat> {
     static AtomicInteger nextId = new AtomicInteger();
     private Long id;
     private int age;
@@ -55,5 +55,10 @@ public class Cat {
                 .append(age).append(", weight - ")
                 .append(weight).append(", colour - ")
                 .append(colour).toString();
+    }
+
+    @Override
+    public int compareTo(Cat o) {
+       return this.age - o.age;
     }
 }
