@@ -59,6 +59,6 @@ public class Cat implements Comparable<Cat> {
 
     @Override
     public int compareTo(Cat o) {
-       return this.age - o.age;
+        return this.age - o.age;
     }
 }

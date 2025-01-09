@@ -1,6 +1,5 @@
 package ru.plidia.factoryapp.service;
 
-import ru.plidia.factoryapp.entity.Cat;
 import ru.plidia.factoryapp.entity.CatColour;
 
 public class RandomGeneration {
@@ -11,7 +10,7 @@ public class RandomGeneration {
     public static CatColour generateColour(CatColour colour) {
         int number = (int) (Math.random() * 100);
         if (number <= CatColour.WHITE.getNumberCode()) {
-           colour = CatColour.WHITE;
+            colour = CatColour.WHITE;
         } else if (number <= CatColour.BLACK.getNumberCode()) {
             colour = CatColour.BLACK;
         } else if (number <= CatColour.GREY.getNumberCode()) {
