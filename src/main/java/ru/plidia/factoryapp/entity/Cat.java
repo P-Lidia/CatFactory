@@ -2,10 +2,10 @@ package ru.plidia.factoryapp.entity;
 
 import ru.plidia.factoryapp.service.RandomGeneration;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class Cat implements Comparable<Cat> {
-    static AtomicInteger nextId = new AtomicInteger();
+    private static AtomicLong nextId = new AtomicLong();
     private Long id;
     private int age;
     private int weight;
@@ -15,10 +15,10 @@ public class Cat implements Comparable<Cat> {
     }
 
     public Cat(int age, int weight, CatColour colour) {
-        this.id = (long) nextId.incrementAndGet();
-        this.age = RandomGeneration.generate(age);
-        this.weight = RandomGeneration.generate(weight);
-        this.colour = RandomGeneration.generateColour(colour);
+        this.id = nextId.incrementAndGet();
+        this.age = age;
+        this.weight = weight;
+        this.colour = colour;
     }
 
     public Long getId() {
@@ -51,10 +51,16 @@ public class Cat implements Comparable<Cat> {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        return sb.append("\n").append("id ").append(id).append(": age - ")
-                .append(age).append(", weight - ")
-                .append(weight).append(", colour - ")
-                .append(colour).toString();
+        return sb.append("\n")
+                .append("id ")
+                .append(id)
+                .append(": age - ")
+                .append(age)
+                .append(", weight - ")
+                .append(weight)
+                .append(", colour - ")
+                .append(colour)
+                .toString();
     }
 
     @Override
